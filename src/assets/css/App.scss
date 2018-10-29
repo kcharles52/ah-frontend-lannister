@@ -128,24 +128,34 @@ $margin: 16px;
 //bookmark page
 .bookmarks {
   padding: 30px;
+  margin: auto;
+  max-width: 75%;
 }
 
 .header {
   padding: 20px 0px;
+  margin-top: 50px;
   margin-bottom: 10px;
 }
 
 .bookmark {
   width: 740px;
-  border-bottom: 1px solid #e2e2e2bd;
+  border: 1px solid #e2e2e2bd;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+#bookmark{
+  cursor: pointer;
 }
 .bookmarkedArticle {
   padding: 20px 0px;
 }
 .bookmarkedArticle img {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 150px;
   float: right;
+  border-radius: 5px;
 }
 .dateRead {
   padding-bottom: 10px;
@@ -153,9 +163,17 @@ $margin: 16px;
 .dateRead .dtTab {
   max-width: 400px;
   padding-right: 30px;
-  float: left;
 }
 
 .removeLink {
   margin-bottom: 5px;
+  // font-size: 12px;
+}
+.removeLink span {
+  cursor: pointer;
+  color:purple;;
+  border-radius: 10px;
+}
+.removeLink span:hover {
+  color: rgba(119, 20, 137, 0.7);
 }

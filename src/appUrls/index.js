@@ -7,10 +7,10 @@ export const API_URLS = {
   FETCH_PROFILE: `${BASE_URL}/api/profiles/`,
   EDIT_PROFILE: `${BASE_URL}/api/profiles/`,
   FETCH_BOOKMARKS: `${BASE_URL}/api/bookmarks/`,
-  CREATE_BOOKMARK: `${BASE_URL}/api/articles/{}/bookmark/`,
-  DELETE_BOOKMARK: `${BASE_URL}/api/articles/{}/unbookmark/`,
   PUBLISHED_ARTICLES:`${BASE_URL}/api/me/articles/published/`,
-  DRAFTED_ARTICLES:`${BASE_URL}/api/me/articles/drafts/`
+  DRAFTED_ARTICLES:`${BASE_URL}/api/me/articles/drafts/`,
+  CREATE_BOOKMARK: `${BASE_URL}/api/articles/`,
+  DELETE_BOOKMARK: `${BASE_URL}/api/articles/`
 };
 
 export const LOGIN_URL = `${BASE_URL}/api/users/login/`;

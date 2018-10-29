@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Authenticate } from "../../routes/protectedRoutes";
+import { details } from "../../routes/protectedRoutes";
 import { AUTHENTICATED } from "../../utils/myHeaders";
 import { getProfile } from "../../actions/profileActions/profileActions";
 import UserProfile from "../../views/profile/profileView";
@@ -32,7 +32,7 @@ export class Profile extends Component {
   }
 
   render() {
-    let loggedInUser = Authenticate(AUTHENTICATED);
+    let loggedInUser = details(AUTHENTICATED);
     let isOwner;
     loggedInUser.username === this.state.profile.username
       ? (isOwner = true)

@@ -22,11 +22,9 @@ const store = mockStore({
 describe("View Profile tests", () => {
   it("should render profile", () => {
     let dispatch = jest.fn();
-    let Authenticate = jest.fn();
     let props = {
       match: { params: { res: { username: "" } } },
       dispatch,
-      Authenticate
     };
     let component = shallow(<Profile {...props} store={store}/>);
     component;

@@ -1,23 +1,43 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getBookmarks } from "../../actions/bookmark/bookmarkActions";
+import {
+  getBookmarks,
+  unBookmarkArticle
+} from "../../actions/bookmark/bookmarkActions";
 import PropTypes from "prop-types";
 import BookmarkedArticleView from "../../views/bookmark/bookmarkArticleView";
 
-class viewBookmarks extends Component {
+export class ViewBookmarks extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      bookmarks: []
+      bookmark: [],
+      unbookmarked:[]
     };
   }
 
   componentWillMount() {
-    let bookmarks = this.props.dispatch(getBookmarks());
-    this.setState({bookmarks:bookmarks});
+    this.props.dispatch(getBookmarks());
   }
+  componentWillUpdate(nextProps) {
+    let current = nextProps.unbookmarked;
+    let prev = this.props.unbookmarked;
+
+    if (current.length !== prev.length) {
+      this.props.dispatch(getBookmarks());
+    }
+  }
+  unBookmarkArticles = slug => {
+    this.props.dispatch(unBookmarkArticle(slug));
+  };
+
   render() {
-    return <BookmarkedArticleView bookmarks={this.props.bookmark}/>;
+    return (
+      <BookmarkedArticleView
+        bookmarks={this.props.bookmark}
+        unBookmarkArticle={this.unBookmarkArticles}
+      />
+    );
   }
 }
 
@@ -25,15 +45,19 @@ const mapDispatchToProps = dispatch => ({ dispatch });
 
 function mapStateToProps(state) {
   return {
-    bookmark: state.bookmarkReducer.bookmark
+    bookmark: state.bookmarkReducer.bookmark,
+    unbookmarked: state.bookmarkReducer.unbookmarked,
+
   };
 }
 
-viewBookmarks.propTypes = {
+ViewBookmarks.propTypes = {
   dispatch: PropTypes.func,
-  bookmark:PropTypes.array
+  unBookmarkArticles: PropTypes.func,
+  bookmark: PropTypes.array,
+  unbookmarked: PropTypes.array
 };
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(viewBookmarks);
+)(ViewBookmarks);

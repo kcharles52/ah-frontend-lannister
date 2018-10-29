@@ -92,3 +92,16 @@ it("test navbar component", () => {
   var node = component.find("Navbar");
   expect(node.length).toEqual(1);
 });
+
+it("should render my article component", () => {
+  const props = { dispatch: () => jest.fn() };
+  let event = {
+    target: {},
+    preventDefault: () => {
+      jest.fn();
+    }
+  };
+  const component = shallow(<CreateArticle {...props} />);
+  component.instance().handleChange(event);
+  expect(component.instance().handleSubmit(event)).toBeUndefined;
+});

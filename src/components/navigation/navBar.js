@@ -1,5 +1,7 @@
 import React from "react";
 import "../../assets/css/navbar.scss";
+import { details } from "../../routes/protectedRoutes";
+import { AUTHENTICATED } from "../../utils/myHeaders";
 import {
   Collapse,
   Navbar,
@@ -15,7 +17,7 @@ import {
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
-
+    this.user = details(AUTHENTICATED);
     this.toggle = this.toggle.bind(this);
     this.state = {
       isOpen: false
@@ -27,10 +29,16 @@ class NavBar extends React.Component {
     });
   }
   render() {
+    let profileUrl;
+    this.user
+      ? (profileUrl = `/profile/${this.user.username}`)
+      : (profileUrl = "/");
     return (
       <div>
         <Navbar light expand="md" id="mynav">
-          <NavbarBrand href="/view-articles" id="navbar-brand">AUTHORS HAVEN</NavbarBrand>
+          <NavbarBrand href="/view-articles" id="navbar-brand">
+            AUTHORS HAVEN
+          </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
@@ -105,7 +113,7 @@ class NavBar extends React.Component {
                       />
                     </DropdownToggle>
                     <DropdownMenu>
-                      <DropdownItem href="/profile/admin">Profile</DropdownItem>
+                      <DropdownItem href={profileUrl}>Profile</DropdownItem>
                       <DropdownItem href="/create-article">
                         Create Article
                       </DropdownItem>
@@ -113,7 +121,7 @@ class NavBar extends React.Component {
                         View Articles
                       </DropdownItem>
                       <DropdownItem href="/me/stories">My stories</DropdownItem>
-                      <DropdownItem href="/">BookMarks</DropdownItem>
+                      <DropdownItem href="/bookmark">BookMarks</DropdownItem>
                       <DropdownItem href="/">Stats</DropdownItem>
                       <DropdownItem divider />
                       <DropdownItem>Log out</DropdownItem>
@@ -121,8 +129,7 @@ class NavBar extends React.Component {
                   </UncontrolledDropdown>
                 </li>
                 <li className="nav-item active">
-                  <a className="nav-link" href="/view-articles">
-                  </a>
+                  <a className="nav-link" href="/view-articles" />
                 </li>
               </ul>
             </Nav>

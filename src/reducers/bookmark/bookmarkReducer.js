@@ -1,7 +1,8 @@
 import ACTION_TYPE from "../../actions/actionTypes";
 
 let intialState = {
-  bookmark: []
+  bookmark: [],
+  unbookmarked: []
 };
 
 export default function bookmarkReducer(state = intialState, action) {
@@ -14,7 +15,7 @@ export default function bookmarkReducer(state = intialState, action) {
   case ACTION_TYPE.UNBOOKMARK_ARTICLE:
     return {
       ...state,
-      bookmark: action.payload
+      unbookmarked: state.unbookmarked.concat(action.payload)
     };
   case ACTION_TYPE.GET_BOOKMARKS:
     return {

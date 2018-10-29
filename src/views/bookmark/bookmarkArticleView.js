@@ -1,9 +1,9 @@
-import React, { Fragment }  from "react";
+import React, { Fragment } from "react";
 import NavBar from "../../components/navigation/navBar";
 import PropTypes from "prop-types";
-import { Button, Media } from "reactstrap";
+import { Media } from "reactstrap";
 
-const BookmarksView = ({ bookmarks }) => {
+const BookmarksView = ({ bookmarks, unBookmarkArticle }) => {
   let ShowBookmarks = bookmarks.map(bookmark => (
     <div className="bookmark" key={bookmark.slug}>
       <div className="bookmarkedArticle">
@@ -15,7 +15,9 @@ const BookmarksView = ({ bookmarks }) => {
           className="ArticleImage"
         />
         <div className="titleDiscription">
-          <h3>{bookmark.article_title}</h3>
+          <a href={`/view-article/${bookmark.slug}`}>
+            <h3>{bookmark.article_title}</h3>
+          </a>
           <p>{bookmark.description} ...</p>
         </div>
         <div className="dateRead">
@@ -23,7 +25,13 @@ const BookmarksView = ({ bookmarks }) => {
         </div>
       </div>
       <div className="removeLink">
-        <Button>Remove </Button>
+        <span
+          onClick={() => {
+            unBookmarkArticle(bookmark.slug);
+          }}
+        >
+          {"Remove"}
+        </span>
       </div>
     </div>
   ));
@@ -47,7 +55,8 @@ BookmarksView.propTypes = {
   description: PropTypes.string,
   author: PropTypes.string,
   publicationDate: PropTypes.string,
-  readTime: PropTypes.string
+  readTime: PropTypes.string,
+  unBookmarkArticle: PropTypes.func
 };
 
 export default BookmarksView;

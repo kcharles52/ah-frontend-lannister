@@ -136,4 +136,3 @@ it("email share component", () => {
   var node = component.find("Label");
   expect(node.length).toEqual(1);
 });
-

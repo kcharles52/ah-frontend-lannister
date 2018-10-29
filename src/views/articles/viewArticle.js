@@ -4,11 +4,11 @@ import SideBarAction from "./sideBar";
 import "../../assets/articleAssets/articlepage.scss";
 import PropTypes from "prop-types";
 import { roundofftime } from "./roundOffTime";
-import { favorite } from "../../assets/articleAssets/svgIcons";
 import Rating from "../../components/articles/rating";
 import Like from "../../components/articles/LikeDislike";
 import { Link } from "react-router-dom";
 import "../../assets/articleAssets/tags.scss";
+import Bookmark from "../../components/bookmark/bookmarkArticle";
 
 const dateFormat = require("dateformat");
 const ViewOneArticle = ({ article, emailShare, handleEmail, selected }) => {
@@ -87,16 +87,7 @@ const ViewOneArticle = ({ article, emailShare, handleEmail, selected }) => {
             </div>
             <Like disliking={article.dislikes} liking={article.likes} />
             <Rating rating={article.average_rating} />
-            <a href="#comments">{article.favorites_count}</a>{" "}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-            >
-              <path fill="none" d="M24 24H0V0h24v24z" />
-              <path d={favorite} />
-            </svg>
+            <Bookmark />
           </div>
         </div>
       </div>

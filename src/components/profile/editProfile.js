@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { editProfile } from "../../actions/profileActions/profileActions";
-import { Authenticate } from "../../routes/protectedRoutes";
+import { details } from "../../routes/protectedRoutes";
 
 import EditProfileView from "../../views/profile/editProfileView";
 
@@ -15,8 +15,8 @@ export class EditProfile extends Component {
   constructor(props) {
     super(props);
     const token = localStorage.getItem("token");
-    let details = Authenticate(token);
-    const user = details.username;
+    let detail= details(token);
+    const user = detail.username;
     this.state = {
       profile: {
         username: user,
