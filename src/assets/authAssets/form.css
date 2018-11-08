@@ -133,3 +133,20 @@ body {
     line-height: 1.5;
     border-radius: .3rem; 
 }
+.was-validated .form-control:valid ~ .invalid-feedback {
+  display: none;
+    }
+    
+input.active:valid {
+  box-shadow: 0 0 5px 1px green;
+    }
+    
+input.active:invalid {
+      box-shadow: 0 0 5px 1px red;
+    }
+    
+.error {
+      color: red;
+      font-size: 12px;
+      margin-top: 5px;
+}
