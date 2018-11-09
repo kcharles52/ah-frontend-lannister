@@ -2,12 +2,126 @@ $primary-color: #333;
 $secondary-color: red;
 $margin: 16px;
 
-.app{
+.app {
   border-color: $primary-color;
   color: darken($primary-color, 10%);
   text-align: center;
 }
 
-.mission{
+.mission {
   color: darken($secondary-color, 10%);
+}
+
+// html {
+//   background: #E5E5E5;
+// }
+
+.User-block {
+  height: 540px;
+  margin: 0 auto;
+  margin-top: 130px;
+  width: 900px;
+}
+.user {
+  height: 100%;
+  position: relative;
+  text-align: center;
+}
+
+.avatar {
+  border-radius: 10%;
+  height: 150px;
+  float: left;
+}
+.UserDetails {
+  height: 150px;
+}
+
+.ProfileName {
+  position: relative;
+  float: left;
+  padding: 20px 30px;
+}
+
+.FollowProfile {
+  position: relative;
+  float: left;
+  padding: 30px 30px;
+}
+
+.follow-button {
+  border-radius: 4px;
+  border-color: 2px solid #333;
+  display: table;
+  height: 42px;
+  margin: 0 auto;
+  width: 200px;
+  vertical-align: middle;
+  font-size: 14px;
+  font-weight: 300;
+  color: #807e7e;
+
+  &:hover {
+    box-shadow: inset 0 0 0 2px white;
+    cursor: pointer;
+    background: scale-lightness(#380882, 5%);
+  }
+
+  > div {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+.usr-info {
+  margin-top: 20px;
+  font-weight: 300;
+}
+.No-Articles {
+  box-shadow: 0 2px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  display: table;
+  height: 10px;
+  margin: 5px auto;
+  padding: 10px;
+  width: 130px;
+  vertical-align: middle;
+  font-size: 14px;
+  font-weight: 300;
+  background: #220353;
+  color: white;
+
+  &:hover {
+    box-shadow: inset 0 0 0 2px white;
+    cursor: pointer;
+    background: scale-lightness(#380882, 5%);
+  }
+}
+
+.followers {
+  font-size: 12px;
+  color: white;
+}
+
+
+.editProfile {
+  width: 50%;
+  margin: 100px auto;
+  padding: 30px;
+  color: white;
+  background-color: #fff;
+}
+
+.editProfile .form-control {
+  margin: 20px auto;
+}
+
+#EditProfile,
+#FollowProfile {
+  border: 1px solid #545b62;
+}
+
+#bioText {
+  min-height: 200px;
+  border-radius: 0px !important;
 }

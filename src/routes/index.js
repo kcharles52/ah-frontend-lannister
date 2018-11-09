@@ -10,6 +10,8 @@ import ProtectedRoute from "./protectedRoutes";
 import ViewArticles from "../components/articles/viewArticles";
 import ViewArticle from "../components/articles/viewArticle";
 import Rating from "../components/articles/rating";
+import Profile from "../components/profile/profile";
+import EditProfile from "../components/profile/editProfile";
 
 const expressHistory = "pushState" in window.history;
 export default function AppRoutes() {
@@ -26,6 +28,8 @@ export default function AppRoutes() {
           <Route path="/view-articles" component={ViewArticles} exact strict/>
           <Route path="/view-article/:slug" component={ViewArticle} exact strict/>
           <ProtectedRoute path="/rating" component={Rating} exact strict/>
+          <ProtectedRoute path="/profile/:username" component={Profile} exact strict />
+          <ProtectedRoute path="/profile/edit/:username" component={EditProfile} exact strict />
         </Switch>
       </BrowserRouter>
     </div>

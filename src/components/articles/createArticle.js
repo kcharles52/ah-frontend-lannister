@@ -9,7 +9,6 @@ import PropTypes from "prop-types";
 import { myHeaders } from "../../utils/myHeaders";
 import { toast } from "react-toastify";
 import { API_URLS } from "../../appUrls";
-import { Redirect } from "react-router-dom";
 import { CLOUD_NAME, UPLOAD_PRESET, FOLDER } from "../../config";
 
 export class CreateArticle extends Component {
@@ -39,13 +38,9 @@ export class CreateArticle extends Component {
 
   handlePublish = e => {
     e.preventDefault();
-    if (
-      this.props.dispatch(
-        publishNewArticleAction(this.props.articles.article.slug)
-      )
-    ) {
-      return <Redirect to="/view-articles" />;
-    }
+    this.props.dispatch(
+      publishNewArticleAction(this.props.articles.article.slug)
+    );
   };
 
   handleSubmit = e => {
