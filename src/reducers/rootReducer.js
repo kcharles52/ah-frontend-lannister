@@ -8,6 +8,7 @@ import commentReducer from "./commentReducer/commentReducer";
 import rateReducer from "./articlesReducer/rateReducer";
 import profileReducer from "./profileReducer";
 import likeDislikeReducer from "./articlesReducer/likeDislikeReducer";
+import bookmarkReducer from "./bookmark/bookmarkReducer";
 
 const reducers = combineReducers({
   simpleReducer,
@@ -18,7 +19,8 @@ const reducers = combineReducers({
   commentReducer,
   rateReducer,
   profileReducer,
-  likeDislikeReducer
+  likeDislikeReducer,
+  bookmarkReducer
 });
 
 export default reducers;

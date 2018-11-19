@@ -103,7 +103,6 @@ $margin: 16px;
   color: white;
 }
 
-
 .editProfile {
   width: 50%;
   margin: 100px auto;
@@ -124,4 +123,39 @@ $margin: 16px;
 #bioText {
   min-height: 200px;
   border-radius: 0px !important;
+}
+
+//bookmark page
+.bookmarks {
+  padding: 30px;
+}
+
+.header {
+  padding: 20px 0px;
+  margin-bottom: 10px;
+}
+
+.bookmark {
+  width: 740px;
+  border-bottom: 1px solid #e2e2e2bd;
+}
+.bookmarkedArticle {
+  padding: 20px 0px;
+}
+.bookmarkedArticle img {
+  width: 100px;
+  height: 100px;
+  float: right;
+}
+.dateRead {
+  padding-bottom: 10px;
+}
+.dateRead .dtTab {
+  max-width: 400px;
+  padding-right: 30px;
+  float: left;
+}
+
+.removeLink {
+  margin-bottom: 5px;
 }

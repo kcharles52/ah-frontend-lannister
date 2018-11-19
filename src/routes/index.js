@@ -12,6 +12,7 @@ import ViewArticle from "../components/articles/viewArticle";
 import Rating from "../components/articles/rating";
 import Profile from "../components/profile/profile";
 import EditProfile from "../components/profile/editProfile";
+import BookmarkedArctles from "../components/bookmark/viewBookmarks";
 
 export default function AppRoutes() {
   return (
@@ -29,6 +30,8 @@ export default function AppRoutes() {
           <ProtectedRoute path="/rating" component={Rating} exact strict/>
           <ProtectedRoute path="/profile/:username" component={Profile} exact strict />
           <ProtectedRoute path="/profile/edit/:username" component={EditProfile} exact strict />
+          <ProtectedRoute path="/bookmark" component={BookmarkedArctles} exact strict />
+
         </Switch>
       </BrowserRouter>
     </div>
