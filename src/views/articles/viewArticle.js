@@ -7,6 +7,8 @@ import { roundofftime } from "./roundOffTime";
 import { favorite } from "../../assets/articleAssets/svgIcons";
 import Rating from "../../components/articles/rating";
 import Like from "../../components/articles/LikeDislike";
+import { Link } from "react-router-dom";
+import "../../assets/articleAssets/tags.scss";
 
 const dateFormat = require("dateformat");
 const ViewOneArticle = ({ article, emailShare, handleEmail, selected }) => {
@@ -63,7 +65,19 @@ const ViewOneArticle = ({ article, emailShare, handleEmail, selected }) => {
             </div>
             <div className="entry-meta">
               <div className="after-post-tags">
-                <ul className="tags" />
+                <ul className="tags" >
+                  {!article.tags ? "" : article.tags.map(tag => (
+                    
+                    <Link to={`/view-articles-under-tag/${tag}`} key={tag}>
+                      <li className="d-inline tag-name"
+                        value={tag}>
+                        {tag}
+                      </li>
+                    </Link>
+                  
+                  ))}
+
+                </ul>
               </div>
             </div>
           </div>

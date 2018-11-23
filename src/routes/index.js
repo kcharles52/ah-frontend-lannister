@@ -8,6 +8,7 @@ import NewPassword from "../components/auth/passwordReset/newPassword";
 import ResetRequest from "../components/auth/passwordReset/passwordResetPage";
 import ProtectedRoute from "./protectedRoutes";
 import ViewArticles from "../components/articles/viewArticles";
+import ViewArticlesUnderTag from "../components/articles/viewArticlesUnderTag";
 import ViewArticle from "../components/articles/viewArticle";
 import Rating from "../components/articles/rating";
 import Profile from "../components/profile/profile";
@@ -18,7 +19,7 @@ import Stories from "../components/articles/stories";
 export default function AppRoutes() {
   return (
     <div>
-      <BrowserRouter >
+      <BrowserRouter>
         <Switch>
           <Route path="/" component={Home} exact strict />
           <Route path="/login" component={LoginPage} exact strict />
@@ -26,13 +27,15 @@ export default function AppRoutes() {
           <Route path="/password_reset" component={ResetRequest} exact strict />
           <Route path="/reset_confirm/:token" component={NewPassword} strict />
           <ProtectedRoute path="/create-article" component={Article} exact strict/>
-          <Route path="/view-articles" component={ViewArticles} exact strict/>
+          <Route path="/view-articles" component={ViewArticles} exact strict />
+          <Route path="/view-articles-under-tag/:tag_name" component={ViewArticlesUnderTag} exact strict/>
           <Route path="/view-article/:slug" component={ViewArticle} exact strict/>
-          <ProtectedRoute path="/rating" component={Rating} exact strict/>
+          <ProtectedRoute path="/rating" component={Rating} exact strict />
           <ProtectedRoute path="/profile/:username" component={Profile} exact strict />
           <ProtectedRoute path="/profile/edit/:username" component={EditProfile} exact strict />
           <ProtectedRoute path="/bookmark" component={BookmarkedArctles} exact strict />
           <ProtectedRoute path="/me/stories" component={Stories} exact strict />
+          <ProtectedRoute path="/profile/edit/:username" component={EditProfile} exact strict/>
         </Switch>
       </BrowserRouter>
     </div>

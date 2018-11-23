@@ -162,3 +162,20 @@ export const deleteOneArticle = slug => dispatch => {
       toast.error(error, { autoClose: 3500, hideProgressBar: true });
     });
 };
+
+export const retrieveArticlesUnderTag = tag_name => dispatch => {
+  return axios
+    .get(BASE_URL + `/api/tags/${tag_name}/`, {
+      headers: myHeaders
+    })
+    .then(res => {
+      const allArticlesUnderTag = {
+        type: ACTION_TYPE.VIEW_ARTICLES_UNDER_TAG,
+        payload: res.data.articles
+      };
+      dispatch(allArticlesUnderTag);
+    })
+    .catch(error => {
+      toast.error(error, { autoClose: 3500, hideProgressBar: true });
+    });
+};

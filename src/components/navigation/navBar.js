@@ -116,7 +116,7 @@ class NavBar extends React.Component {
                       <DropdownItem href="/">BookMarks</DropdownItem>
                       <DropdownItem href="/">Stats</DropdownItem>
                       <DropdownItem divider />
-                      <DropdownItem>LogOut</DropdownItem>
+                      <DropdownItem>Log out</DropdownItem>
                     </DropdownMenu>
                   </UncontrolledDropdown>
                 </li>

@@ -18,6 +18,8 @@ const newArticle = ({
   handleEditorChange,
   allcategory,
   category,
+  tags,
+  addTags,
   handleSelectChange
 }) => {
   return (
@@ -129,6 +131,7 @@ const newArticle = ({
                       </select>
                     </div>
                   </div>
+
                   <div className="form-group">
                     <input
                       placeholder="Tags"
@@ -136,8 +139,12 @@ const newArticle = ({
                       className="form-control"
                       id="title"
                       name="tags"
+                      value={tags}
+                      onChange={addTags}
+                      required="required"
                     />
                   </div>
+                  
                 </div>
                 <div className="col-md-1 col-xs-1" />
               </div>
@@ -160,7 +167,9 @@ newArticle.propTypes = {
   allcategory: PropTypes.array,
   category: PropTypes.string.isRequired,
   handlePublish: PropTypes.func,
-  handleUpload: PropTypes.func
+  handleUpload: PropTypes.func,
+  addTags: PropTypes.func,
+  tags: PropTypes.string.isRequired
 };
 
 export default newArticle;

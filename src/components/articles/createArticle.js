@@ -107,6 +107,8 @@ export class CreateArticle extends Component {
       });
   };
 
+  addTags = event => this.setState({ [event.target.name]: event.target.value.split(",") });
+
   render() {
     const {
       description,
@@ -114,7 +116,8 @@ export class CreateArticle extends Component {
       body,
       allcategory,
       category,
-      image
+      image,
+      tags
     } = this.state;
     return (
       <div>
@@ -131,6 +134,8 @@ export class CreateArticle extends Component {
           handlePublish={this.handlePublish}
           handleUpload={this.handleUpload}
           image={image}
+          tags={tags}
+          addTags={this.addTags}
         />
       </div>
     );
